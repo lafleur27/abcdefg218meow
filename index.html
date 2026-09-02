@@ -1620,27 +1620,6 @@
   }
   .lsBrand { display:flex; align-items:center; gap:calc(var(--u) * 1.1);
              cursor:pointer; flex:0 0 auto; }
-  .lsCA {
-    display:flex; align-items:center; gap:calc(var(--u) * 1.2);
-    margin:calc(var(--u) * 2.4) auto 0; padding:calc(var(--u) * 1.1) calc(var(--u) * 1.6);
-    background:#fff; border:1px solid #e6e6e4; border-radius:calc(var(--u) * 1.2);
-    width:fit-content; max-width:100%; flex-wrap:wrap; justify-content:center;
-  }
-  .lsCALabel {
-    font-size:calc(var(--u) * 1.1); font-weight:700; letter-spacing:.08em;
-    text-transform:uppercase; color:var(--ls-mut);
-  }
-  .lsCA code {
-    font-family:var(--font-code); font-size:calc(var(--u) * 1.25);
-    color:var(--ls-head); word-break:break-all;
-  }
-  .lsCACopy {
-    border:0; background:var(--ls-head); color:var(--ls-page); cursor:pointer;
-    font-size:calc(var(--u) * 1.1); font-weight:600;
-    padding:calc(var(--u) * .6) calc(var(--u) * 1.2); border-radius:calc(var(--u) * .8);
-  }
-  .lsCACopy:hover { opacity:.85; }
-
   .lsBrandIcon { width:calc(var(--u) * 2.7); height:calc(var(--u) * .72);
                  display:block; border-radius:1px; background:currentColor;
                  color:var(--ls-head); flex:0 0 auto; }
@@ -3016,16 +2995,7 @@
         <a href="#" data-view="app" class="lsBtn lsBtnLg">Open the app</a>
         <a data-buy="" class="lsBtn lsBtnLg lsBtnBuy" href="#" target="_blank" rel="noopener">Buy $STOCKP</a>
       </div>
-      <!-- LE CONTRAT, EN CLAIR ET COPIABLE.
-           Un lancement sans adresse visible envoie les gens la chercher
-           ailleurs &#8212; et ailleurs, quelqu'un en poste une fausse. C'est la
-           premiere chose qu'on demande, autant qu'elle soit la. -->
-      <div class="lsCA">
-        <span class="lsCALabel">Contract</span>
-        <code id="caText">0x8aD25c65587979533fa1cA0d2194A76D5bAE305d</code>
-        <button class="lsCACopy" id="caCopy" type="button">Copy</button>
       </div>
-    </div>
   </section>
 
   <div class="lsSections">
@@ -8094,27 +8064,6 @@ window.addEventListener("unhandledrejection", function (e) {
     if (reset) reset.addEventListener("click", bbRevenir);
     if (champ) champ.addEventListener("keydown", function (e) {
       if (e.key === "Enter") { e.preventDefault(); bbChercher(); }
-    });
-  })();
-
-  (function () {
-    var b = document.getElementById("caCopy"), t = document.getElementById("caText");
-    if (!b || !t) return;
-    b.addEventListener("click", function () {
-      var texte = t.textContent.trim();
-      /* `writeText` echoue hors HTTPS et dans certaines webviews. On ne laisse
-         pas l'utilisateur avec un bouton mort : on selectionne le texte, il
-         copie a la main. */
-      var fini = function () { b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1600); };
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(texte).then(fini, function () { selectionner(); });
-      } else selectionner();
-      function selectionner() {
-        var r = document.createRange(); r.selectNodeContents(t);
-        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
-        b.textContent = "Select + copy";
-        setTimeout(function () { b.textContent = "Copy"; }, 2200);
-      }
     });
   })();
 

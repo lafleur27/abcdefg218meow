@@ -2992,7 +2992,7 @@
   </header>
 
   <section class="lsHero">
-    <div class="lsPlates" id="lsPlates"><a class="lsTile" href="#basket" aria-label="NVIDIA dans le panier" data-cote="gauche" data-rang="0" style="top:3%;--k:0.82;--dx:4.6s"><span class="lsTileZ"><span class="lsPlate" style="--dy:5.9s"><img class="lsPlateImg" src="/assets/a469db9adfe9f.jpg" alt=""></span></span></a><a class="lsTile" href="#basket" aria-label="Apple dans le panier" data-cote="droite" data-rang="1" style="top:2%;--k:0.88;--dx:4.7s"><span class="lsTileZ"><span class="lsPlate" style="--dy:6.7s"><img class="lsPlateImg" src="/assets/afda0d0e3e48e.jpg" alt=""></span></span></a><a class="lsTile" href="#basket" aria-label="Tesla dans le panier" data-cote="gauche" data-rang="2" style="top:36%;--k:0.82;--dx:3.7s"><span class="lsTileZ"><span class="lsPlate" style="--dy:5.1s"><img class="lsPlateImg" src="/assets/a1d7222895ec3.jpg" alt=""></span></span></a><a class="lsTile" href="#basket" aria-label="Google dans le panier" data-cote="droite" data-rang="3" style="top:50%;--k:0.88;--dx:4.4s"><span class="lsTileZ"><span class="lsPlate" style="--dy:6.1s"><img class="lsPlateImg" src="/assets/a9c0365fe4a45.jpg" alt=""></span></span></a><a class="lsTile" href="#basket" aria-label="Gold dans le panier" data-cote="centre" data-rang="4" style="top:72%;--k:0.72;--dx:5.1s"><span class="lsTileZ"><span class="lsPlate" style="--dy:6.4s"><img class="lsPlateImg" src="/assets/a77ca09faa329.jpg" alt=""></span></span></a></div>
+    <div class="lsPlates" id="lsPlates"></div>
     <div class="lsIn lsHeroIn">
       <h1 class="lsH1">Every trade builds<br>a floor of real stocks.</h1>
       <p class="lsLede">
@@ -4923,96 +4923,7 @@ window.addEventListener("unhandledrejection", function (e) {
       }).join("");
     }
 
-    var couche = document.getElementById("lsPlates");
-    if (!couche) return;
-
-    /* Position, taille et durees par plaque. Les deux axes ne tombent
-       jamais sur un multiple commun, donc la derive ne boucle pas a l'oeil.
-       --plate recoit la photo le jour ou elle arrive ; en attendant c'est
-       un degrade dans la couleur d'accent de l'actif. */
-    /* Ancrage par COTE, pas par pourcentage : une plaque a droite est calee
-       sur le bord droit, donc elle ne peut pas le depasser quelle que soit
-       la largeur de fenetre. `k` fait juste varier un peu les tailles pour
-       que la grille ne paraisse pas mecanique. Les durees des deux axes ne
-       tombent jamais sur un multiple commun : la derive ne boucle pas. */
-    /* CINQ PLAQUES, DONC TROIS A GAUCHE ET DEUX A DROITE.
-
-       A quatre, chaque cote en portait deux et les tailles pouvaient rester
-       pleines. L'or en a ajoute une : les quatre coins etaient deja pris, et
-       l'espace libre entre la plaque haute et la plaque basse \u2014 17 % de la
-       hauteur \u2014 ne suffisait pas pour une tuile qui en occupe 33.
-
-       On resserre donc, en gardant le couloir central intact : c'est lui qui
-       porte le titre et les boutons, et il ne doit rien perdre. Les `k` sont
-       calcules pour que trois tuiles tiennent a gauche sans se toucher, pas
-       choisis a l'oeil. */
-    var pose = [
-      { cote:"gauche", y:"3%",  k:.82,  dx:"4.6s", dy:"5.9s" },
-      { cote:"droite", y:"2%",  k:.88,  dx:"4.7s", dy:"6.7s" },
-      { cote:"gauche", y:"36%", k:.82,  dx:"3.7s", dy:"5.1s" },
-      { cote:"droite", y:"50%", k:.88,  dx:"4.4s", dy:"6.1s" },
-      /* L'or va au CENTRE, sous le contrat. La colonne de gauche en portait
-         trois, ce qui la chargeait pendant que tout l'espace sous le contrat
-         restait vide. `72%` le pose juste au-dessous du bloc d'adresse, et
-         `k` descend a .72 pour qu'il tienne dans ce qui reste sans depasser
-         le bas de la scene. */
-      { cote:"centre", y:"72%", k:.72,  dx:"5.1s", dy:"6.4s" }
-    ];
-
-    /* `slice(0, pose.length)` laissait l'or DEHORS. Il etait cinquieme dans `ASSETS`,
-       donc invisible sur la landing alors qu'il pese 20 % du panier. On borne
-       desormais sur le nombre de poses disponibles : ajouter un actif sans
-       lui donner sa place le ferait disparaitre en silence, exactement comme
-       l'or a disparu. */
-    /* La vitrine n'est pas ASSETS tel quel : c'est un choix d'edition. On
-       rejette SPY (pas de photo de vitrine) et on fait entrer JUP, le jeton
-       natif Solana du panier, pour garder le compteur de poses. */
-    var ordre = ["NVDA", "AAPL", "TSLA", "GOOGL", "JUP"];
-    var vedettes = [];
-    for (var oi = 0; oi < ordre.length; oi++) {
-      for (var ai = 0; ai < ASSETS.length; ai++) {
-        if (ASSETS[ai].t === ordre[oi]) { vedettes.push(ASSETS[ai]); break; }
-      }
-    }
-    couche.innerHTML = vedettes.slice(0, pose.length).map(function (a, n) {
-      var p = pose[n];
-      var cadre = ' href="#basket" aria-label="' + a.name + ' dans le panier"'
-                + ' data-cote="' + p.cote + '" data-rang="' + n
-                + '" style="top:' + p.y + ';--k:' + p.k + ';--dx:' + p.dx + '"';
-
-
-      /* Une image finie porte deja sa carte et son texte : on l'affiche
-         NUE. Ni flou, ni voile, ni carte par-dessus \u2014 les trois
-         detruiraient ce qui a ete compose dedans. */
-      if (a.card) {
-        return '<a class="lsTile"' + cadre + '>'
-             + '<span class="lsTileZ">'
-             + '<span class="lsPlate" style="--dy:' + p.dy + '">'
-             + '<img class="lsPlateImg" src="' + a.card + '" alt="">'
-             + '</span></span>' + '</a>';
-      }
-
-      var fond = "radial-gradient(120% 100% at 30% 20%, " + a.accent + " 0%, "
-               + a.glow + " 55%, rgba(2,2,2,.34) 100%)";
-      var lignes = [
-        ["Weight", a.weight], ["Fee tier", a.tier],
-        ["Pool depth", a.depth], ["Held", a.held]
-      ].map(function (l) {
-        return '<span class="lsCardRow"><span>' + l[0] + '</span><b>' + l[1] + '</b></span>';
-      }).join("");
-
-      return '<a class="lsTile"' + cadre + '>'
-           + '<span class="lsTileZ">'
-           + '<span class="lsPlate lsPlateFond" style="--dy:' + p.dy
-           + ';--plate:' + fond + '">'
-           + '<span class="lsCard">'
-           + '<span class="lsCardTop"><img src="' + a.logo + '" alt="">'
-           + '<b>' + a.t + '</b><span>' + a.name + '</span></span>'
-           + '<span class="lsCardBio">' + a.bio + '</span>'
-           + lignes
-           + '</span></span></span>' + '</a>';
-    }).join("");
-  })();
+      })();
 
   /* ---------- jetons eparpilles en fond d'app ----------
      Positions choisies dans les MARGES : la colonne fait 122 unites

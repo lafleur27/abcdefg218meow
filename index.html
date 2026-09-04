@@ -4959,12 +4959,22 @@ window.addEventListener("unhandledrejection", function (e) {
       { cote:"centre", y:"72%", k:.72,  dx:"5.1s", dy:"6.4s" }
     ];
 
-    /* `slice(0, 4)` laissait l'or DEHORS. Il etait cinquieme dans `ASSETS`,
+    /* `slice(0, pose.length)` laissait l'or DEHORS. Il etait cinquieme dans `ASSETS`,
        donc invisible sur la landing alors qu'il pese 20 % du panier. On borne
        desormais sur le nombre de poses disponibles : ajouter un actif sans
        lui donner sa place le ferait disparaitre en silence, exactement comme
        l'or a disparu. */
-    couche.innerHTML = ASSETS.slice(0, pose.length).map(function (a, n) {
+    /* La vitrine n'est pas ASSETS tel quel : c'est un choix d'edition. On
+       rejette SPY (pas de photo de vitrine) et on fait entrer JUP, le jeton
+       natif Solana du panier, pour garder le compteur de poses. */
+    var ordre = ["NVDA", "AAPL", "TSLA", "GOOGL", "JUP"];
+    var vedettes = [];
+    for (var oi = 0; oi < ordre.length; oi++) {
+      for (var ai = 0; ai < ASSETS.length; ai++) {
+        if (ASSETS[ai].t === ordre[oi]) { vedettes.push(ASSETS[ai]); break; }
+      }
+    }
+    couche.innerHTML = vedettes.slice(0, pose.length).map(function (a, n) {
       var p = pose[n];
       var cadre = ' href="#basket" aria-label="' + a.name + ' dans le panier"'
                 + ' data-cote="' + p.cote + '" data-rang="' + n

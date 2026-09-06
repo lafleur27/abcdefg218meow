@@ -3257,554 +3257,85 @@
     <div class="wmBody">
 
   <div class="wrap narrow doc">
-    <p class="eyebrow">/ HOW IT WORKS /</p>
-    <h1 class="section-title">How the floor works.</h1>
-    <p class="lede">Contracts, flows, and data sources used by the app. Half of every purchase goes to holders, half becomes floor.</p>
+    <p class="eyebrow">/ STOCKP /</p>
+    <h1 class="section-title">A treasury-backed token on Solana.</h1>
+    <p class="lede">$STOCKP is built around one simple mechanism: trading turns into fees, fees flow into a treasury, the treasury acquires real assets, and eligible holders are rewarded automatically. The goal is to turn trading activity into a growing on-chain treasury while rewarding those who hold. Trade. Accumulate. Participate.</p>
 
-    <h2 style="margin-top:8px">Process</h2>
+    <h2 style="margin-top:8px">Mechanism</h2>
     <div class="steps">
       <div class="step">
         <span class="no">01</span>
         <span class="bd"><b>People trade $STOCKP</b>
-          <p>STOCKP launches on Pons v2: it opens on a bonding curve holding the whole
-          supply, and a permanently locked Uniswap v4 pool is created at graduation.
-          Nothing migrates, nothing unlocks.</p></span>
-        <span class="tag">Pons v2</span>
+          <p>Every buy or sell on Solana generates a fee. Trading is the engine that feeds the whole system.</p></span>
       </div>
       <div class="step">
         <span class="no">02</span>
-        <span class="bd"><b>3% of every trade builds the treasury</b>
-          <p>On top of the standard Pons fee, $STOCKP charges a 3% creator tax that goes
-          <strong>entirely</strong> to the treasury â€” on buys and on sells, always in SOL,
-          never in $STOCKP itself. It is not a fee that disappears into a wallet: it buys
-          the basket â€” NVIDIA, Apple, Google, Tesla, the S&amp;P 500, JUP and PUMP â€” and half of it comes back to you.</p></span>
+        <span class="bd"><b>3% of every trade flows to the treasury</b>
+          <p>A 3% buy/sell fee is charged on every transaction and directed to the treasury. Nothing is skimmed into a wallet.</p></span>
         <span class="tag hot">3%</span>
       </div>
       <div class="step">
         <span class="no">03</span>
-        <span class="bd"><b>The treasury buys the basket</b>
-          <p>Collected SOL is split across the basket. Each line is 
-swapped on the venue where its market actually is.</p></span>
-        <span class="tag">8 assets</span>
+        <span class="bd"><b>The treasury acquires assets</b>
+          <p>Treasury funds are used to acquire the protocol&#8217;s supported assets on-chain.</p></span>
       </div>
       <div class="step">
         <span class="no">04</span>
-        <span class="bd"><b>Every purchase splits in two</b>
-          <p>Half of what the treasury buys is set aside for holders. The other half stays as floor and only leaves through a burn.</p></span>
+        <span class="bd"><b>Accumulation is split in two</b>
+          <p>Half of the treasury is allocated to holder rewards. The other half is retained as the treasury floor.</p></span>
         <span class="tag hot">50 / 50</span>
       </div>
       <div class="step">
         <span class="no">05</span>
-        <span class="bd"><b>Holders claim, without burning</b>
-          <p>Your share of the set-aside arrives by claiming. You keep every token you own. The burn door stays open separately, as a floor.</p></span>
-        <span class="tag">On chain</span>
+        <span class="bd"><b>Eligible holders are rewarded automatically</b>
+          <p>No claims. No staking. No burning. No redemption. Simply hold 100,000+ $STOCKP to participate.</p></span>
       </div>
     </div>
 
-    <div class="callout">
-      <p><strong>Yes, 3% is a tax. We would rather you hear it from us.</strong> Most taxed
-      tokens cannot tell you where the money goes. This one can: every cent of it enters the
-      treasury, buys tokenised assets on-chain, and half of each purchase is set aside for
-      holders to claim. You can read the balance from the contract yourself â€” the app
-      does exactly that on the Overview page.</p>
-      <p><strong>Traders pay 3% in total.</strong> Pons takes 1% on every launch it hosts,
-      and our 2% sits on top of it. That is the same total as <strong>The Index</strong>,
-      which charges a flat 3% on this chain for a comparable promise â€” we read their
-      hook to check rather than take their word for it.</p>
-      <p>So the difference is not the price. It is what happens to the money: theirs lands in
-      a treasury, ours buys equities, sets half of every purchase aside for you to claim, and
-      burns supply on the way.</p>
-    </div>
-
-    <h2>Two doors, and they do different jobs</h2>
-    <p>
-      This is the part most people get backwards, so it is worth being blunt about it.
-    </p>
+    <h2>Token</h2>
     <table class="vs">
-      <thead><tr><th class="a"></th><th class="a">Burn to redeem</th><th class="b">Claim</th></tr></thead>
+      <thead><tr><th class="a"></th><th class="b">$STOCKP</th></tr></thead>
       <tbody>
-        <tr><td class="k">You give up</td><td class="a">Your tokens, destroyed.</td><td class="b">Nothing.</td></tr>
-        <tr><td class="k">You receive</td><td class="a">Your pro-rata slice of the floor, less 5%.</td><td class="b">Your share of the set-aside.</td></tr>
-        <tr><td class="k">What it is for</td><td class="a">A price that cannot reach zero.</td><td class="b">Getting paid in equities.</td></tr>
-        <tr><td class="k">When to use it</td><td class="a">Only if the market price ever falls below the floor.</td><td class="b">Every epoch.</td></tr>
-      </tbody>
-    </table>
-    <div class="callout">
-      <p><strong>Burning is not how you make money.</strong> Buy $200 of STOCKP, burn it
-      immediately, and you get back whatever the floor is worth â€” a fraction of what you paid.
-      Nobody does that. You profit by selling higher, like any token.</p>
-    </div>
-
-    <h2>Walk through it with real numbers</h2>
-    <p>
-      This is the question everyone asks, so here is the arithmetic instead of the theory.
-    </p>
-    <p>
-      Say a buyer named Mike puts $500 in at a $100k market cap. A day later the token is at
-      $70k, so his position is worth $350. Say the treasury has bought $10k of equities by then. That $10k spread
-      across the whole supply means the floor is worth about 14% of the market cap.
-    </p>
-    <p>
-      If Mike burns, he destroys his tokens and receives his pro-rata slice of that floor:
-      roughly <b>$49, less the 5% exit fee, so about $46</b>. Against $350 if he simply sells.
-    </p>
-    <p>
-      <strong>Burning would cost Mike 87% more than selling. He should never do it, and neither
-      should you.</strong> That is not a flaw in the design. It is the mechanism working exactly
-      as intended.
-    </p>
-
-    <h2>The burn door is not an exit. It is a magnet.</h2>
-    <p>
-      The floor is a hard number: equities held, divided by tokens in circulation. Say it works
-      out to $0.00014 per token.
-    </p>
-    <p>
-      Now suppose the market price ever fell <b>below</b> that, to $0.00010. Anyone could buy
-      tokens at $0.00010 and burn them for $0.00014 of real Nvidia and Apple shares. That is
-      free money, so bots would do it on repeat, buying tokens every time, <b>which pushes the
-      price back up</b> until the gap closes.
-    </p>
-    <p>
-      <strong>The price cannot stay below the floor. Not because anyone promises it, but because
-      it would be profitable for a stranger to fix.</strong>
-    </p>
-    <p>
-      <strong>The burn door exists to be available, not to be used.</strong> In Mikeâ€™s case
-      the price sits five times above the floor, so the door is irrelevant to him today. It would
-      only matter if the market cap collapsed to around $14k. That is the whole point: it is the
-      thing standing between him and zero.
-    </p>
-
-    <h2>So what actually helps Mike</h2>
-    <p>Three things, and none of them is burning.</p>
-    <p>
-      <strong>Claiming.</strong> Every epoch, if he holds at least 0.1% of supply, his share of
-      the equities arrives <b>without burning anything and without losing a single token</b>. He
-      keeps his full position and accumulates real Nvidia at the same time. This is his
-      mechanism. The burn door is not.
-    </p>
-    <p>
-      <strong>A price that cannot reach zero.</strong> At $70k he is far above the floor, so it
-      does nothing for him today. But it is what stops his position from becoming strictly
-      nothing, which is the usual ending for a memecoin.
-    </p>
-    <p>
-      <strong>The buyback.</strong> Half of every fee buys the token back and burns it. Supply
-      falls, so everyone elseâ€™s share of the treasury grows.
-    </p>
-    <div class="callout">
-      <p><strong>Nothing here guarantees Mike gets his money back. No mechanism can, and anyone
-      who tells you otherwise is lying.</strong> To recover his $500 he sells, like with any
-      token. What changes is that while he waits for the price to recover, two things work in
-      his favour: the floor rises as fees keep buying equities, and supply shrinks as the
-      buyback burns. On an ordinary memecoin, waiting produces nothing at all.</p>
-    </div>
-    <div class="callout">
-      <p><strong>The only person who ever burns is an arbitrageur, and only once the price has
-      fallen through the floor.</strong> He buys low, burns, and pockets the difference. He is
-      not doing Mike a favour, he is chasing his own profit â€” and that is precisely what
-      drags Mikeâ€™s price back up. The system is built so that a strangerâ€™s greed
-      defends everyoneâ€™s floor.</p>
-    </div>
-
-    <h2>Why the floor only rises</h2>
-    <table class="vs">
-      <thead><tr><th class="a"></th><th class="a">Standard memecoin</th><th class="b">$STOCKP</th></tr></thead>
-      <tbody>
-        <tr><td class="k">Price support</td>
-            <td class="a">None. Nothing underneath.</td>
-            <td class="b">A basket of real equities, claimable at any time.</td></tr>
-        <tr><td class="k">What a sale does</td>
-            <td class="a">Drains the pool, hurts every holder.</td>
-            <td class="b">Generates fees that buy equities and lift the floor.</td></tr>
-        <tr><td class="k">Exiting</td>
-            <td class="a">Sell into the pool at whatever price is left.</td>
-            <td class="b">Burn to redeem at book value, or sell. Two doors.</td></tr>
-        <tr><td class="k">Floor over time</td>
-            <td class="a">Goes to zero.</td>
-            <td class="b">Ratchets up. It never moves back down.</td></tr>
+        <tr><td class="k">Ticker</td><td class="b">$STOCKP</td></tr>
+        <tr><td class="k">Network</td><td class="b">Solana</td></tr>
+        <tr><td class="k">Total supply</td><td class="b">1,000,000,000</td></tr>
+        <tr><td class="k">Buy / Sell fee</td><td class="b">3%</td></tr>
       </tbody>
     </table>
 
-    <pre>floor per token = treasury value Ã· circulating supply</pre>
-    <p>Four forces move it. All four push the same way.</p>
-    <table>
-      <thead><tr><th>Event</th><th>Treasury</th><th>Supply</th><th>Floor</th></tr></thead>
-      <tbody>
-        <tr><td>Someone buys</td><td>up</td><td>flat</td><td>â†‘</td></tr>
-        <tr><td>Someone sells</td><td>up</td><td>flat</td><td>â†‘</td></tr>
-        <tr><td>Someone exits (burn)</td><td>down, less 5%</td><td>down faster</td><td>â†‘</td></tr>
-        <tr><td>The equities appreciate</td><td>up</td><td>flat</td><td>â†‘</td></tr>
-      </tbody>
-    </table>
-    <div class="callout">
-      <p><strong>Sellers pay the holders.</strong> A sale generates fees, fees buy equities,
-      equities lift the floor. And an exit through the burn door leaves 5% behind. It is the
-      opposite of every other memecoin, where each sale destroys the people who stayed.</p>
-    </div>
-    <p>
-      The price cannot break below the floor either. If it did, anyone could buy on the market,
-      burn, and claim more than they paid. Arbitrage closes the gap.
-    </p>
-
-    <h2>The Vault</h2>
-    <p>
-      Holding $STOCKP already pays â€” every trade turns fees into a basket of tokenized stocks
-      that back your bag. The vault is the second gear: <strong>lock your $STOCKP and your
-      share of those rewards is multiplied</strong>.
-    </p>
-    <p>
-      Three locks, three multipliers â€” <strong>7 days pays 2Ã—, 15 days 3Ã—, 30 days 5Ã—</strong>.
-      A staker on the 30-day lock earns five times the rewards of a plain holder the same
-      size, paid out of the dilution of everyone who <em>didn't</em> lock. The longer you
-      commit, the larger your slice.
-    </p>
-    <p>You choose what the rewards become, per position:</p>
+    <h2>Treasury</h2>
+    <p>A portion of every trading fee flows into the treasury. Treasury funds are used to acquire the protocol&#8217;s supported assets.</p>
+    <p>The treasury is allocated between:</p>
     <ul>
-      <li><strong>Claim</strong> â€” take your boosted share as the real tokenized stocks
-      (NVDA, AAPL, GOOGL, TSLA, SPY plus JUP, PUMP and PONS), straight to your wallet.</li>
-      <li><strong>Compound</strong> â€” the rewards are sold back into $STOCKP and added to your
-      stake, which re-locks. Your bag grows on its own, and next epoch's boost is bigger.</li>
-    </ul>
-    <p>
-      Every position carries <strong>its own countdown</strong>: lock whenever you want,
-      unlock at maturity, take your $STOCKP back plus everything it compounded. The APY is not
-      a billboard number â€” it is <strong>read live from the reward flow and the total staked
-      weight</strong>, so it rises with volume and dilutes as more $STOCKP is locked.
-    </p>
-    <div class="callout">
-      <p><strong>The boost lives in the amount, never in the weight.</strong> The treasury
-      caps every payout by the claimer's live token balance, so a position can never claim
-      more than it holds. The vault carries the multiplier in the <em>amount</em> written
-      into the Merkle tree and sets its leaf weight to its real $STOCKP balance â€” the cap
-      passes, the boost lands, and no one drains the pool by staking then dumping. The vault
-      is a <strong>separate contract</strong> that reads the treasury and never touches it.
-      Your locked $STOCKP leaves only by <code>unstake</code>, at maturity, by you â€” the owner
-      can never withdraw it.</p>
-    </div>
-
-    <h2>Auto-distribution</h2>
-    <p>
-      You asked for it: <strong>your rewards now come to you</strong>. Every 12 hours the
-      keeper delivers each eligible holder's share â€” the tokenized stocks (NVDA, AAPL,
-      GOOGL, TSLA, SPY) plus $PONS, $JUP and $PUMP â€” <strong>straight into their wallet</strong>.
-      No connecting, no claiming, no signature. The one thing you do is hold.
-    </p>
-    <ul>
-      <li><strong>Who gets it</strong> â€” the same eligibility as always: hold at least
-      0.10% of supply, weighted over time. Smart wallets (EIP-7702, ERC-4337 accounts)
-      are holders like any other and receive normally.</li>
-      <li><strong>What gets sent</strong> â€” everything you have accrued and not claimed,
-      across every hourly epoch since the last delivery. Nothing waits, nothing is lost.</li>
-      <li><strong>Manual claim still works</strong> â€” the Claim button is still there,
-      any time, every epoch. Anything you claim by hand is deducted from your next
-      auto-delivery <em>by construction</em>: both paths debit the same on-chain ledger,
-      so being paid twice is impossible.</li>
-      <li><strong>Dust is patient</strong> â€” a share worth less than its own gas is not
-      sent, it accumulates and ships the first day it is worth the trip. Nothing is
-      ever forfeited.</li>
-      <li><strong>Gas is on the house</strong> â€” delivery costs are paid from reward
-      fees, about 0.3% of the value distributed.</li>
-    </ul>
-    <div class="callout">
-      <p><strong>The distributor can only pay you.</strong> It is a separate contract
-      holding a few hours of rewards at most. The keeper can only deliver to the credited
-      holders â€” never to itself; the owner can only withdraw what is <em>not</em> owed
-      to holders. Your balance leaves that contract in exactly two ways: the daily
-      delivery to your wallet, or your own manual claim. The countdown to the next
-      delivery is on the claim page.</p>
-    </div>
-
-    <h2>Supported assets</h2>
-    <p>
-      Weights are not opinions. Each one is <strong>the share its pool can absorb</strong>
-      without moving the price. Everything below was read from the chain on
-      <strong>25 August 2026</strong>. Depth moves; treat these as a snapshot, not a
-      constant.
-    </p>
-    <table>
-      <thead><tr><th>Asset</th><th>Weight</th><th>Bought via</th></tr></thead>
-      <tbody>
-        <tr><td>NVIDIA</td><td>12.5%</td><td>SOL</td></tr>
-        <tr><td>Apple</td><td>12.5%</td><td>direct</td></tr>
-        <tr><td>Google</td><td>12.5%</td><td>SOL</td></tr>
-        <tr><td>Tesla</td><td>12.5%</td><td>SOL</td></tr>
-        <tr><td>S&amp;P 500</td><td>12.5%</td><td>SOL</td></tr>
-        <tr><td>Pons</td><td>12.5%</td><td>direct</td></tr>
-        <tr><td>JUP</td><td>12.5%</td><td>SOL</td></tr>
-        <tr><td>PUMP</td><td>12.5%</td><td>SOL</td></tr>
-      </tbody>
-    </table>
-
-    <div class="callout">
-      <p><strong>Every asset in the basket trades against SOL.</strong> Every SOL
-      pool is ten to a hundred times deeper than its ETH counterpart, and Google has
-      <strong>no usable ETH pool at all</strong> â€” the pair exists but holds nothing.
-      Anyone telling you these "trade against SOL" has not looked.</p>
-      <p>Routing is measured line by line, not assumed. Where an asset's real depth sits
-      in SOL, the treasury buys it through SOL; Apple and Pons buy direct, where their
-      own pool is deep enough. Every line is checked on its own.</p>
-      <p>Apple is the exception and stays direct: through SOL it came out
-      <strong>0.06% worse</strong>. Every line is measured on its own, none of it is
-      assumed â€” which is the only reason the Apple result was found at all.</p>
-    </div>
-
-    <p>
-      Selling uses the same principle from the other side. When you swap your claimed
-      assets back to SOL, the app quotes <strong>every live pool â€” direct and
-      through SOL â€” and routes down whichever pays more</strong>. The best path
-      depends on size, so it is quoted each time rather than hardcoded.
-    </p>
-
-    <h3>Three filters, and all three are hard</h3>
-    <ul>
-      <li><strong>Own fee tier.</strong> NVIDIA and Tesla sit on 0.30%, Apple on 0.05%,
-      gold on 1.00% â€” and NVIDIA has a second, shallower 0.05% pool that is sometimes the
-      better fill for small size. A single hardcoded tier routes half the basket into
-      pools that are not the best, and some into pools that do not exist.</li>
-      <li><strong>Quote token.</strong> SOL carries the depth, and reaching it costs a
-      second hop. Both sides now make that hop â€” the app when you sell, the treasury when
-      it buys.</li>
-      <li><strong>Two-sided depth.</strong> A pool holding only the asset lets you buy and
-      never sell. Handing redeemers something they cannot exit would be worse than leaving
-      it out.</li>
+      <li><strong>50% &#8212; Holder rewards.</strong> Set aside to reward eligible holders.</li>
+      <li><strong>50% &#8212; Treasury floor.</strong> Retained as the protocol&#8217;s underlying asset base.</li>
     </ul>
 
-    <h3>Why JUP and PUMP</h3>
-    <p>
-      The basket is more than blue chips. <strong>Jupiter (JUP)</strong> is the Solana
-      ecosystem's trading hub, and <strong>Pump.fun (PUMP)</strong> is the launchpad behind
-      its memecoin economy. Both are native Solana assets, so they sit on the same chain as
-      $STOCKP itself.
-    </p>
-    <p>
-      They join the basket at equal weight with the equities, delivered to holders on the
-      same cadence. That way every holder earns the full STOCKP ecosystem â€” not just the
-      tokenized stocks, but the two tokens that power the network it runs on.
-    </p>
+    <h2>Automatic rewards</h2>
+    <p>Eligible holders receive rewards automatically. There is nothing to claim, nothing to stake, nothing to burn, and nothing to redeem.</p>
+    <p>Hold at least <strong>100,000+ $STOCKP</strong> to participate. Rewards are calculated on <strong>time-weighted holdings</strong> and distributed automatically.</p>
+    <div class="callout">
+      <p><strong>Simply hold to participate.</strong> The only requirement is keeping 100,000+ $STOCKP in your wallet. Rewards are weighted over time so they reflect genuine, continued holding rather than a snapshot.</p>
+    </div>
 
-    <h2>Verified on-chain</h2>
-    <p>Every value below was read from the deployed contracts, not from documentation.</p>
-    <table>
-      <thead><tr><th>Parameter</th><th>Value</th></tr></thead>
-      <tbody>
-        <tr><td>Pool fee tier</td><td>1.00% â€” forced, single config</td></tr>
-        <tr><td>Creator fee split</td><td>70 / 30</td></tr>
-        <tr><td>Share of volume captured</td><td>0.350%</td></tr>
-        <tr><td>Token supply</td><td>1,000,000,000 fixed</td></tr>
-        <tr><td>Launch market cap</td><td>1.356 SOL</td></tr>
-        <tr><td>Graduation threshold</td><td>4.2 SOL</td></tr>
-        <tr><td>Launch restrictions</td><td>2 blocks only</td></tr>
-      </tbody>
-    </table>
-    <p>
-      That last one matters: max wallet and max transaction apply for <strong>two blocks</strong>,
-      and only to buys from the canonical pool. After that the token behaves as a plain ERC-20.
-    </p>
+    <h2>Treasury floor</h2>
+    <p>The treasury retains a portion of its acquired assets as the protocol&#8217;s underlying asset base.</p>
+    <p>The floor represents the value of the assets held by the treasury relative to the circulating supply. It is not a guaranteed token price.</p>
+
+    <h2>Liquidity</h2>
+    <p>$STOCKP is built for Solana. Launch and liquidity infrastructure are handled through the project&#8217;s Solana-based launch setup.</p>
 
     <h2>Contracts</h2>
-    <div class="addrs">
-      <div class="addr"><b>Chain</b><code>Solana Â· 4663</code></div>
-      <div class="addr"><b>RPC</b><code>https://rpc.mainnet.chain.robinhood.com</code></div>
-      <div class="addr"><b>PonsLaunchLocker</b><code>0x736D76699C26D0d966744cAe304C000d471f7F35</code></div>
-      <div class="addr"><b>PonsLaunchFactory</b><code>0xA5aAb3F0c6EeadF30Ef1D3Eb997108E976351feB</code></div>
-      <div class="addr"><b>SwapRouter02</b><code>0xCaf681a66D020601342297493863E78C959E5cb2</code></div>
-      <div class="addr"><b>SOL</b><code>0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73</code></div>
-      <div class="addr"><b>STOCKP Vault</b><code>0xEf9Cb10585F7641c89AFb5Ab97559749CB7B1b71</code></div>
-      <div class="addr"><b>STOCKP Distributor</b><code>0xc2f799fF3c16DBE4801A8bF9c9b47177BcFD2479</code></div>
-      <div class="addr"><b>NVDA</b><code>0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC</code></div>
-      <div class="addr"><b>AAPL</b><code>0xaF3D76f1834A1d425780943C99Ea8A608f8a93f9</code></div>
-      <div class="addr"><b>GOOGL</b><code>0x2e0847E8910a9732eB3fb1bb4b70a580ADAD4FE3</code></div>
-      <div class="addr"><b>TSLA</b><code>0x322F0929c4625eD5bAd873c95208D54E1c003b2d</code></div>
-      <div class="addr"><b>SPY</b><code>0x117cc2133c37b721f49de2a7a74833232b3b4c0c</code></div>
-      <div class="addr"><b>JUP</b><code>JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN</code></div>
-      <div class="addr"><b>PUMP</b><code>So11111111111111111111111111111111111111112</code></div>
-      <div class="addr"><b>PONS</b><code>0x39dbed3a2bd333467115de45665cc57f813c4571</code></div>
-    </div>
+    <p>All official contract addresses will be published here and should be verified on-chain before interacting with the protocol.</p>
 
-    <h2>Common questions</h2>
-    <div class="faq">
-      <details>
-        <summary>I bought on FOMO, GMGN, or another trading terminal â€” how do I claim?</summary>
-        <p>Claiming is tied to the <strong>wallet address that holds your $STOCKP</strong>,
- not the app you bought through. Our claim page connects any standard 
-wallet, so there is no terminal-specific button â€” and you do not need 
-one.</p>
-        <p><strong>If your terminal wallet supports WalletConnect or has a built-in dApp browser:</strong>
- open it, choose Connect â†’ WalletConnect, and approve. On desktop you 
-scan the QR code; on mobile it deep-links straight back into your app. 
-Make sure the wallet is on Solana, then claim as normal.</p>
-        <p><strong>If your terminal does not connect to outside apps:</strong>
- most of these terminals are self-custody and let you export your 
-private key or recovery phrase. Export it, import the wallet into 
-MetaMask or Rabby, add the Solana network (the app will prompt 
-you), then connect here and claim.</p>
-        <p>The only hard requirement is that you <strong>control the wallet</strong>
- holding your $STOCKP. If your tokens sit in a shared or custodial wallet 
-you do not control, move them to your own wallet first, then claim from 
-there. Your allocation does not expire while you sort this out â€” 
-unclaimed epochs are carried forward, so nothing is lost.</p>
-      </details>
-
-      <details>
-        <summary>Where does my redemption arrive?</summary>
-        <p>Directly in your wallet, as tokenized assets. You call redeem, you receive
-        NVDA, AAPL, GOOGL, TSLA, SPY, JUP, PUMP and PONS in one transaction, sized to your share of the
-        supply.</p>
-      </details>
-      <details>
-        <summary>What if one equity is frozen when I redeem?</summary>
-        <p>Your redemption is refused, and nothing is burned. Tokenized equities only
-        transfer while their market is open, and issuers keep a per-address restriction
-        list â€” so a line can be undeliverable through no fault of yours. Letting the
-        burn go through and silently dropping that line would destroy your tokens for a
-        partial basket, so the default is to refuse and let you retry later.</p>
-        <p>If a line is frozen for good, you are not trapped. A second, explicit button
-        redeems what <em>can</em> be delivered and gives up the rest. What you give up
-        does not leave the treasury â€” it stays as floor for everyone still holding.
-        We never take that door on your behalf.</p>
-      </details>
-      <details>
-        <summary>Can one broken equity freeze the whole protocol?</summary>
-        <p>No, and this took a rewrite to get right. An earlier version checked that every
-        equity was tradeable before allowing any redemption or any purchase. One equity
-        permanently frozen would then have locked redemptions <em>and</em> purchases for
-        everyone, forever â€” with no way back once ownership is renounced. Each line is now
-        isolated: a purchase that fails is skipped, a delivery that fails is refused on its
-        own, and the rest of the basket keeps working.</p>
-      </details>
-      <details>
-        <summary>If there is a countdown, why do I still have to claim?</summary>
-        <p>Because the countdown does not send you anything. When it hits zero a new
-        <em>epoch</em> opens, and everything the treasury is holding for holders â€”
-        including whatever nobody collected earlier â€” is split again across current
-        holders by time-weighted balance. You then collect whenever you want, and you keep
-        every token you hold.</p>
-        <p>Waiting costs you nothing. Only the latest epoch is payable at a time, so if you
-        skip a few, your share is not sitting in an old list going stale â€” it has been
-        folded back into the current one, and the number you see is larger. That is also
-        what keeps the books exact: what is promised is always what is actually there, so a
-        claim can never fail because someone else got there first.</p>
-        <p>The alternative would be pushing equities to every wallet automatically. That
-        needs the token to keep a list of its own holders on-chain, and a Pons token does
-        not have one. A push also caps out around 700 wallets per transaction, so past
-        that point a protocol has to start excluding small holders to keep going. Claiming
-        has none of those limits, and at the gas we measured here it costs about a cent.</p>
-      </details>
-      <details>
-        <summary>How often does a new epoch open?</summary>
-        <p>Every hour. The contract holds that number, not the keeper â€” it refuses
-        to publish before the interval has passed, so the cadence is verifiable rather
-        than promised.</p>
-        <p>An hourly epoch does not mean an hourly payout, and that distinction matters.
-        At $60k of daily volume the treasury captures about $210 a day, half of which goes
-        to holders. Split across six lines and a few hundred wallets, one hour is worth
-        a fraction of a cent each â€” far below the payout threshold.</p>
-        <p>Nothing is lost. Anything under the threshold is carried forward and paid as
-        soon as it is worth its gas. So a large holder is paid often, a small one
-        accumulates until the amount justifies the transaction, and neither has to wait
-        for a fixed weekly date. A slow cadence would make everyone wait for the slowest
-        case; the threshold handles it per wallet instead.</p>
-      </details>
-      <details>
-        <summary>What stops the price falling below the floor?</summary>
-        <p>Two things, and the second is unusual.</p>
-        <p>The first is the exit itself: if $STOCKP ever trades below what a token can
-        redeem, anyone can buy it cheap, burn it, and walk away with the difference. That
-        arbitrage closes the gap on its own.</p>
-        <p>The second is that the treasury does not wait for someone else to do it.
-        <code>buybackAndBurn</code> lets <strong>anyone</strong> make the treasury spend its
-        own SOL reserve to buy $STOCKP on the market and destroy it â€” but only at or
-        below a price ceiling held on-chain. Buying a token that redeems for more than it
-        costs, then burning it, mechanically raises the floor for everyone still holding.</p>
-        <p>It is open to anyone on purpose. The day the price dislocates is exactly the day
-        you do not want to depend on a bot being alive. And it cannot be abused: ask the
-        treasury to pay above the ceiling and the contract refuses; ask for more tokens than
-        the market will give and the trade fails. The only thing left to do with it is
-        trigger a buyback at a good price.</p>
-        <p><strong>This second lever starts closed.</strong> The ceiling is zero until the
-        treasury sets one, and while it is zero the call simply reverts â€” there is no
-        floor to defend before the treasury holds anything. It gets armed once the basket is
-        worth defending, and the ceiling has to sit just under the real floor, which is why
-        it is a deliberate act rather than a launch default. The Overview panel shows the
-        live state: it reads <em>burning x% of every fee</em> for the automatic buyback, and
-        adds <em>open at â€¦ SOL/token</em> only once this one is armed.</p>
-        <p>The first defence â€” buy cheap, redeem, keep the difference â€” needs no
-        setting and works from the first block.</p>
-      </details>
-      <details>
-        <summary>Do I need to stake or lock anything?</summary>
-        <p>No. There is nothing to stake and nothing to lock. Claiming your equities costs
-        you no tokens at all â€” you keep everything you hold.</p>
-      </details>
-      <details>
-        <summary>So how do I actually make money?</summary>
-        <p>Two ways, and burning is not one of them. First, you claim your share of equities
-        every epoch while keeping all your tokens. Second, you sell higher â€” like any token.
-        Burning $200 of STOCKP the day you buy it returns only what the floor is worth, which
-        is a fraction of the price. The burn door is a safety net, not a payout.</p>
-      </details>
-      <details>
-        <summary>How are my shares calculated?</summary>
-        <p>Off-chain, on <strong>time-weighted balances</strong> over the epoch, and only the
-        Merkle root is published on-chain. Time-weighting is not optional: a plain snapshot
-        would be farmed by buying one block before it and selling right after. Claiming is a
-        single transaction with your proof.</p>
-      </details>
-      <details>
-        <summary>Can the floor ever go down?</summary>
-        <p>Not from anything a holder does â€” that is proven algebraically and verified by
-        fuzzing over hundreds of thousands of random operation sequences. It does pay a
-        small friction each time the treasury buys equities: measured at 28 basis points
-        per conversion at the 0.30% tier. Incoming fees exceed that by a wide margin.</p>
-      </details>
-      <details>
-        <summary>Why these four and not others?</summary>
-        <p>They are the ones that pass all three filters: a SOL pool, on a live fee tier,
-        with depth on <strong>both</strong> sides. SpaceX and Microsoft fail the last one â€”
-        their pools hold the equity and nothing to pay you back with. Amazon, AMD and
-        Palantir only exist against SOL. Oracle and CoreWeave have nothing at all.</p>
-      </details>
-      <details>
-        <summary>Does splitting a redemption pay more?</summary>
-        <p>Marginally. Because the floor rises with each redemption, exiting in ten pieces
-        returns about 97 basis points more than exiting at once. It is bounded, it costs gas
-        each time, and it never breaks the invariant.</p>
-      </details>
-      <details>
-        <summary>What happens if nobody trades?</summary>
-        <p>The treasury stops growing. The mechanism does not create attention â€” it rewards
-        it. What it guarantees is that whatever was accumulated stays accumulated: the floor
-        holds, it simply stops climbing.</p>
-      </details>
-      <details>
-        <summary>Can protocol parameters change?</summary>
-        <p>The owner can update the basket, its weights and the keeper. The exit fee can only
-        ever be lowered, never raised.</p>
-        <p>The basket will be frozen permanently once the weights settle â€” a one-way,
-        on-chain switch anyone can verify. We deliberately do <em>not</em> renounce
-        ownership on top of that. Renouncing looks like the stronger promise, but it also
-        destroys the ability to rotate a leaked keeper key and to remove an equity that
-        breaks. Those powers can only ever protect you. Freezing the basket removes the
-        one power that could not.</p>
-      </details>
-      <details>
-        <summary>What is the worst case?</summary>
-        <p>The Robinhood <code>Stock</code> contract exposes <code>adminBurn</code>, callable
-        with <code>ADMIN_BURNER_ROLE</code>, with no pause check and no blocklist check. The
-        issuer can destroy the equities held by the treasury. That risk is irreducible and
-        we would rather state it here than bury it.</p>
-      </details>
-    </div>
+    <h2>Risk</h2>
+    <p>$STOCKP is a speculative digital asset. The protocol does not guarantee profits, appreciation, liquidity, or recovery of capital. Treasury assets and $STOCKP can lose value. Do your own research.</p>
 
     <p class="fine" style="margin-top:36px">
-      Informational only; not financial, legal, tax, or investment advice. Distributions are
-      tokenized equities, not brokerage shares, and do not include voting rights or dividends.
-      Liquidity may be limited and prices can move materially.
+      Informational only; not financial, legal, tax, or investment advice. $STOCKP is a speculative digital asset and may lose value.
     </p>
   </div>
-    </div><!-- /wmBody -->
+</div><!-- /wmBody -->
   </div><!-- /wmMain -->
 </section>
 
